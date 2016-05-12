@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question name:</strong>
+  <%= @question.question_name %>
+</p>
+
+<p>
+  <strong>C answer:</strong>
+  <%= @question.c_answer %>
+</p>
+
+<p>
+  <strong>Alt1:</strong>
+  <%= @question.alt1 %>
+</p>
+
+<p>
+  <strong>Alt2:</strong>
+  <%= @question.alt2 %>
+</p>
+
+<p>
+  <strong>Alt3:</strong>
+  <%= @question.alt3 %>
+</p>
+
+<p>
+  <strong>News url:</strong>
+  <%= @question.news_url %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @question.img_url %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @question.tag %>
+</p>
+
+<p>
+  <strong>News summary:</strong>
+  <%= @question.news_summary %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @question.category_id %>
+</p>
+
+<p>
+  <strong>Question type:</strong>
+  <%= @question.question_type_id %>
+</p>
+
+<p>
+  <strong>Valid from:</strong>
+  <%= @question.valid_from %>
+</p>
+
+<p>
+  <strong>Valid to:</strong>
+  <%= @question.valid_to %>
+</p>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

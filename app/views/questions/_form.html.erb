@@ -1,0 +1,71 @@
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :question_name %><br>
+    <%= f.text_field :question_name %>
+  </div>
+  <div class="field">
+    <%= f.label :c_answer %><br>
+    <%= f.text_field :c_answer %>
+  </div>
+  <div class="field">
+    <%= f.label :alt1 %><br>
+    <%= f.text_field :alt1 %>
+  </div>
+  <div class="field">
+    <%= f.label :alt2 %><br>
+    <%= f.text_field :alt2 %>
+  </div>
+  <div class="field">
+    <%= f.label :alt3 %><br>
+    <%= f.text_field :alt3 %>
+  </div>
+  <div class="field">
+    <%= f.label :news_url %><br>
+    <%= f.text_field :news_url %>
+  </div>
+  <div class="field">
+    <%= f.label :img_url %><br>
+    <%= f.text_field :img_url %>
+  </div>
+  <div class="field">
+    <%= f.label :tag %><br>
+    <%= f.text_field :tag %>
+  </div>
+  <div class="field">
+    <%= f.label :news_summary %><br>
+    <%= f.text_field :news_summary %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= collection_select(:question, :category_id, @categories, :id,
+    :category_name, {:prompt => false}) %>
+  </div>
+  <div class="field">
+    <%= f.label :question_type_id %><br>
+    <%= collection_select(:question, :question_type_id, @question_types,
+    :id, :question_type_name, {:prompt => false}) %>
+  </div>
+  <div class="field">
+    <%= f.label :valid_from %><br>
+    <%= f.date_select :valid_from %>
+  </div>
+  <div class="field">
+    <%= f.label :valid_to %><br>
+    <%= f.date_select :valid_to %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

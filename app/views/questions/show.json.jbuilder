@@ -1,0 +1,1 @@
+json.extract! @question, :id, :question_name, :c_answer, :alt1, :alt2, :alt3, :news_url, :img_url, :tag, :news_summary, :category_id, :question_type_id, :valid_from, :valid_to, :created_at, :updated_at

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question_name: MyString
+  c_answer: MyString
+  alt1: MyString
+  alt2: MyString
+  alt3: MyString
+  news_url: MyString
+  img_url: MyString
+  tag: MyString
+  news_summary: MyString
+  category_id: 1
+  question_type_id: 1
+  valid_from: 2016-05-12
+  valid_to: 2016-05-12
+
+two:
+  question_name: MyString
+  c_answer: MyString
+  alt1: MyString
+  alt2: MyString
+  alt3: MyString
+  news_url: MyString
+  img_url: MyString
+  tag: MyString
+  news_summary: MyString
+  category_id: 1
+  question_type_id: 1
+  valid_from: 2016-05-12
+  valid_to: 2016-05-12
