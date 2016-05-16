@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   resources :question_types
   resources :categories
-  resources :questions
-
+  resources :questions do
+    collection do
+      match 'search' => 'questions#search', via: [:get, :post], as: :search
+    end
+  end
   namespace :api, defaults: {format: :json} do
     resources :questions, :categories, :question_types
   end

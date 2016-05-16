@@ -11,9 +11,12 @@
 <div class="navbar navbar-default">
   <div class="container">
     <ul class="nav navbar-nav">
-      <li><%= link_to "Questions", root_path %></li>
-      <li><%= link_to "Categories", categories_path %></li>
-      <li><%= link_to "Question Types", question_types_path %></li>
+      <li><%= link_to 'Frågor', root_path %></li>
+      <li><%= link_to 'Ny fråga', new_question_path %></li>
+      <li><%= link_to 'Kategorier', categories_path %></li>
+      <li><%= link_to 'Ny kategori', new_category_path %></li>
+      <li><%= link_to 'Frågetyper', question_types_path %></li>
+      <li><%= link_to 'Ny frågetyp', new_question_type_path %></li>
     </ul>
   </div>
 </div>

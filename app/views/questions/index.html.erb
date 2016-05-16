@@ -1,23 +1,25 @@
 <p id="notice"><%= notice %></p>
+<h1>Frågor</h1>
+<br>
+<%= search_form_for @q do |f| %>
 
-<h1>Listing Questions</h1>
+  <%= f.label :Sök %>
+  <%= f.search_field :question_name_or_c_answer_cont %>
 
+  <%= f.submit %>
+<% end %>
+<br>
 <table class="table">
   <thead>
     <tr>
-      <th>Question name</th>
-      <th>C answer</th>
-      <th>Alt1</th>
-      <th>Alt2</th>
-      <th>Alt3</th>
-      <th>News url</th>
-      <th>Img url</th>
-      <th>Tag</th>
-      <th>News summary</th>
-      <th>Category</th>
-      <th>Question type</th>
-      <th>Valid from</th>
-      <th>Valid to</th>
+      <th><span class="glyphicon glyphicon-info-sign"
+          aria-hidden="true"></span></th>
+      <th><%= sort_link(@q, :question_name, 'Fråga') %></th>
+      <th><%= sort_link(@q, :c_answer, 'Rätt svar') %></th>
+      <th><%= sort_link(@q, :category_id, 'Kategori') %></th>
+      <th><%= sort_link(@q, :valid_from, 'Giltig fr.o.m') %></th>
+      <th><%= sort_link(@q, :valid_from, 'Giltig t.o.m') %></th>
+      <th>Redigera</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,34 +27,24 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
+        <% if question.valid_to >= @todays_date %>
+          <td><span class="glyphicon glyphicon-ok-circle"
+          aria-hidden="true"></span></td>
+        <% else %>
+          <td><span class="glyphicon glyphicon-ban-circle"
+          aria-hidden="true"></span></td>
+        <% end %>
         <td><%= question.question_name %></td>
         <td><%= question.c_answer %></td>
-        <td><%= question.alt1 %></td>
-        <td><%= question.alt2 %></td>
-        <td><%= question.alt3 %></td>
-        <td><%= question.news_url %></td>
-        <td><%= question.img_url %></td>
-        <td><%= question.tag %></td>
-        <td><%= question.news_summary %></td>
-        <td><%= question.category_id %></td>
-        <td><%= question.question_type_id %></td>
+        <td><%= question.category.category_name %></td>
         <td><%= question.valid_from %></td>
         <td><%= question.valid_to %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Visa', question %> |
+        <%= link_to 'Redigera', edit_question_path(question) %> |
+        <%= link_to 'Radera', question, method: :delete, data: { confirm: 'Är du säker?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<%= search_form_for @q do |f| %>
-
-  <%= f.label :question_name_cont %>
-  <%= f.search_field :question_name_cont %>
-
-  <%= f.submit %>
-<% end %>
-<br>
-<%= link_to 'Json', api_questions_path %>
 <%= link_to 'New Question', new_question_path %>

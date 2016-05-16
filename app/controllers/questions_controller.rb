@@ -7,11 +7,13 @@ class QuestionsController < ApplicationController
     @questions = Question.all
     @q = Question.ransack(params[:q])
     @questions = @q.result(distinct: true)
+    @todays_date = Time.now
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @question = Question.find_by_sub_domain params[:id]
   end
 
   # GET /questions/new
@@ -65,6 +67,11 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    index
+    render :index
   end
 
   private
