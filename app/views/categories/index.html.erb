@@ -1,11 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Categories</h1>
-
+<h1>Kategorier</h1>
+<%= search_form_for @q do |f| %>
+  <form class="form-inline">
+    <div class="form-group">
+      <%= f.search_field :category_name_cont,
+      class: 'form-control', placeholder: 'Sök...' %>
+    </div>
+    <button type="submit" class='btn btn-primary'>Sök fråga</button>
+  </form>
+<% end %>
 <table class="table">
   <thead>
     <tr>
       <th><%= sort_link(@q, :category_name, 'Kategori') %></th>
+      <th>Redigera</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,20 +23,11 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.category_name %></td>
-        <td><%= link_to 'Show', category %>
-        <%= link_to 'Edit', edit_category_path(category) %>
-        <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Visa', category %> |
+        <%= link_to 'Redigera', edit_category_path(category) %> |
+        <%= link_to 'Radera', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<br>
-<%= search_form_for @q do |f| %>
-
-  <%= f.label :category_name_cont %>
-  <%= f.search_field :category_name_cont %>
-
-  <%= f.submit %>
-<% end %>
-<br>
-<%= link_to 'New Category', new_category_path %>
+<%= paginate @categories %>

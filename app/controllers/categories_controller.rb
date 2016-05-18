@@ -4,9 +4,11 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
-    @q = Category.ransack(params[:q])
-    @categories = @q.result(distinct: true)
+    q_param = params[:q]
+    page = params[:page]
+
+    @q = Category.ransack q_param
+    @categories = @q.result.page(page)
   end
 
   # GET /categories/1

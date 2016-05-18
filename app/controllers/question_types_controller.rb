@@ -4,9 +4,11 @@ class QuestionTypesController < ApplicationController
   # GET /question_types
   # GET /question_types.json
   def index
-    @question_types = QuestionType.all
-    @q = QuestionType.ransack(params[:q])
-    @question_types = @q.result(distinct: true)
+    q_param = params[:q]
+    page = params[:page]
+
+    @q = QuestionType.ransack q_param
+    @question_types = @q.result.page(page)
   end
 
   # GET /question_types/1

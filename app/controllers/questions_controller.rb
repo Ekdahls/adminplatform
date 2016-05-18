@@ -4,16 +4,17 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
-    @q = Question.ransack(params[:q])
-    @questions = @q.result(distinct: true)
-    @todays_date = Time.now
+    q_param = params[:q]
+    page = params[:page]
+
+    @q = Question.ransack q_param
+    @questions = @q.result.page(page)
+    @todays_date = Date.today.to_time
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def show
-    @question = Question.find_by_sub_domain params[:id]
   end
 
   # GET /questions/new
