@@ -79,7 +79,7 @@
 
 <div class="col-md-6">
   <fieldset class="form-group">
-    <%= f.label "Katgori" %><br>
+    <%= f.label "Kategori" %><br>
     <%= collection_select(:question, :category_id, @categories, :id,
     :category_name, {:prompt => false},required: true, class: "form-control" ) %>
   </fieldset>
@@ -119,17 +119,17 @@
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label "Svartalternativ 1 (Fel svar)"%><br>
+    <%= f.label "Svarsalternativ 1 (Fel svar)"%><br>
     <%= f.text_field :alt1,required: true, class: "form-control"  %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label "Svartalternativ 2 (Fel svar)" %><br>
+    <%= f.label "Svarsalternativ 2 (Fel svar)" %><br>
     <%= f.text_field :alt2 ,required: true, class: "form-control" %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label "Svartalternativ 3 (Fel svar)" %><br>
+    <%= f.label "Svarsalternativ 3 (Fel svar)" %><br>
     <%= f.text_field :alt3 ,required: true, class: "form-control" %>
   </fieldset>
 
