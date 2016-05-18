@@ -33,7 +33,7 @@
     <% @questions.each do |question| %>
 
       <tr>
-        <% if question.valid_to >= @todays_date  && question.valid_from <= @todays_date%>
+        <% if question.valid_to >= @todays_date and question.valid_from <= @todays_date%>
           <td><span class="glyphicon glyphicon-ok-circle"
           aria-hidden="true"></span></td>
         <% else %>
