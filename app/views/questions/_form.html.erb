@@ -1,4 +1,6 @@
-<%= form_for(@question) do |f| %>
+
+<%= form_for @question do |f| %>
+
   <% if @question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -11,61 +13,132 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :question_name %><br>
-    <%= f.text_field :question_name %>
+<div id="top-area">
+</div>
+<br>
+
+<div class="col-md-6" id="left-column">
+
+<div class="col-md-12" >
+<div class="field">
+  <%= f.label "Nyhets-url" %><br>
+    <div class="form-group">
+    <%= f.text_field :news_url,required: true, class: "form-control", placeholder: "http://..." %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :c_answer %><br>
-    <%= f.text_field :c_answer %>
+</div>
+
+<div class="col-md-6">
+<div class="form-group">
+    <%= f.label "Giltig från" %><br>
+<div class ="input-group date" id="datepicker1">
+    <%= f.text_field :valid_from,required: true, class: "form-control" ,'data-behaviour' => 'datepicker' %>
+    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
   </div>
-  <div class="field">
-    <%= f.label :alt1 %><br>
-    <%= f.text_field :alt1 %>
+</div>
+<script type="text/javascript">
+            $(function () {
+                $('#datepicker1').datepicker({
+                  format: 'yyyy-mm-dd',
+                  autoclose: true,
+                  weekStart: 1,
+                  language: 'sv',
+                  calendarWeeks: true,
+                  todayHighlight: true
+                });
+            });
+        </script>
+
+
+<div class="form-group">
+    <%= f.label "Giltig till" %><br>
+<div class ="input-group date" id="datepicker2">
+    <%= f.text_field :valid_to,required: true, class: "form-control" ,'data-behaviour' => 'datepicker' %>
+    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
   </div>
-  <div class="field">
-    <%= f.label :alt2 %><br>
-    <%= f.text_field :alt2 %>
-  </div>
-  <div class="field">
-    <%= f.label :alt3 %><br>
-    <%= f.text_field :alt3 %>
-  </div>
-  <div class="field">
-    <%= f.label :news_url %><br>
-    <%= f.text_field :news_url %>
-  </div>
-  <div class="field">
-    <%= f.label :img_url %><br>
-    <%= f.text_field :img_url %>
-  </div>
-  <div class="field">
-    <%= f.label :tag %><br>
-    <%= f.text_field :tag %>
-  </div>
-  <div class="field">
-    <%= f.label :news_summary %><br>
-    <%= f.text_field :news_summary %>
-  </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
+</div>
+<script type="text/javascript">
+            $(function () {
+                $('#datepicker2').datepicker({
+                  format: 'yyyy-mm-dd',
+                  autoclose: true,
+                  weekStart: 1,
+                  language: 'sv',
+                  calendarWeeks: true,
+                  todayHighlight: true
+
+                });
+               
+            });
+        </script>
+</div>
+
+<div class="col-md-6">
+  <fieldset class="form-group">
+    <%= f.label "Katgori" %><br>
     <%= collection_select(:question, :category_id, @categories, :id,
-    :category_name, {:prompt => false}) %>
-  </div>
-  <div class="field">
-    <%= f.label :question_type_id %><br>
+    :category_name, {:prompt => false},required: true, class: "form-control" ) %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label "Typ av fråga" %><br>
     <%= collection_select(:question, :question_type_id, @question_types,
-    :id, :question_type_name, {:prompt => false}) %>
-  </div>
-  <div class="field">
-    <%= f.label :valid_from %><br>
-    <%= f.date_select :valid_from %>
-  </div>
-  <div class="field">
-    <%= f.label :valid_to %><br>
-    <%= f.date_select :valid_to %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    :id, :question_type_name, {:prompt => false}, required: true, class: "form-control" ) %>
+  </fieldset>
+</div>
+
+
+<div class="col-md-12">
+
+  <fieldset class="form-group">
+    <%= f.label "Taggar (Separera med ',' )" %><br>
+    <%= f.text_field :tag , class: "form-control" %>
+  </fieldset>
+
+<fieldset class="form-group">
+    <%= f.label "Fråga" %><br>
+    <%= f.text_area :question_name,required: true, class: "form-control" , :rows =>"4" %>
+  </fieldset>
+
+</div>
+
+
+</div>
+
+<div class="col-md-6" id ="right-column">
+
+  
+
+  <fieldset class="form-group">
+    <%= f.label "Rätt svar" %><br>
+    <%= f.text_field :c_answer, required: true, class: "form-control"  %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label "Svartalternativ 1 (Fel svar)"%><br>
+    <%= f.text_field :alt1,required: true, class: "form-control"  %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label "Svartalternativ 2 (Fel svar)" %><br>
+    <%= f.text_field :alt2 ,required: true, class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label "Svartalternativ 3 (Fel svar)" %><br>
+    <%= f.text_field :alt3 ,required: true, class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="actions">
+    <%= f.submit 'Spara', class: "btn btn-primary"  %>
+  </fieldset><br>
+
+
+
 <% end %>
+  </div>
+

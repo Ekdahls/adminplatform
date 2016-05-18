@@ -11,6 +11,7 @@ json.array! @questions do |question|
   json.news_summary   question.news_summary
 
   json.category_id question.category ? question.category.category_name : nil
+  json.category_hex_code question.category.category_hex_code
   json.question_type_id question.question_type ? question.question_type.question_type_name : nil
 
   json.valid_from     question.valid_from

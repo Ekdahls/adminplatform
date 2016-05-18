@@ -10,12 +10,17 @@
       </ul>
     </div>
   <% end %>
+  <div id="top-area">
+</div>
+<br>
 
-  <div class="field">
-    <%= f.label :question_type_name %><br>
-    <%= f.text_field :question_type_name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<form class="form-inline">
+    <div class="input-group">
+      <%= f.text_field :question_type_name,
+      class: 'form-control', placeholder: 'Frågetyp' %>
+       <span class="input-group-btn" id="search.btn-addon"><button type="submit" class='btn btn-primary'>Lägg till</button></span>
+    </div>
+  </form>
+
+
 <% end %>

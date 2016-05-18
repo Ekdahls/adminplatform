@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Category name:</strong>
+  <strong>Kategori:</strong>
   <%= @category.category_name %>
 </p>
+<p>
+<strong>Hexkod:</strong>
+	  <%= @category.category_hex_code %>
+</p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Redigera', edit_category_path(@category) %> |
+<%= link_to 'Tillbaka', categories_path %>

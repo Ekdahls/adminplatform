@@ -10,8 +10,65 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap-datepicker
  *= require_tree .
  *= require_self
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "bootstrap-datepicker";
+
+ body {
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ }
+
+/* Navbar styles */
+
+ .navbar {
+  text-transform: uppercase;
+
+ }
+
+.container{
+
+#top-area{
+	margin-bottom: 20px;
+	border-bottom: 4px solid #007BC4;
+}
+
+#btn-back{
+	
+	font-color: white;
+}
+
+
+.glyphicon.glyphicon-ok-circle{
+	
+color: green;
+
+}
+
+.glyphicon.glyphicon-ban-circle{
+	
+color: red;
+
+}
+
+td#td-edit-delete{
+	width: 20%; 
+	align: right;
+}
+
+td#td-question-name{
+	width: 30%;
+}
+
+
+
+}
+
+

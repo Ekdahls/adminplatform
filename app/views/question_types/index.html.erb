@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Frågetyper</h1>
+<br>
 <%= search_form_for @q do |f| %>
   <form class="form-inline">
-    <div class="form-group">
+
+
+
+     <div class="input-group">
       <%= f.search_field :question_type_name_cont,
       class: 'form-control', placeholder: 'Sök...' %>
+       <span class="input-group-btn" id="search.btn-addon"><button type="submit" class='btn btn-primary'>Sök Fågetyp</button></span>
+
     </div>
-    <button type="submit" class='btn btn-primary'>Sök fråga</button>
   </form>
 <% end %>
 <table class="table">
@@ -31,13 +36,7 @@
   </tbody>
 </table>
 <br>
-<%= search_form_for @q do |f| %>
 
-  <%= f.label :question_type_name_cont %>
-  <%= f.search_field :question_type_name_cont %>
-
-  <%= f.submit %>
-<% end %>
 <%= paginate @question_types %>
 <br>
 <%= link_to 'New Question type', new_question_type_path %>

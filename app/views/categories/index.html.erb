@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Kategorier</h1>
+<br>
 <%= search_form_for @q do |f| %>
   <form class="form-inline">
-    <div class="form-group">
+
+     <div class="input-group">
       <%= f.search_field :category_name_cont,
       class: 'form-control', placeholder: 'Sök...' %>
+       <span class="input-group-btn" id="search.btn-addon"><button type="submit" class='btn btn-primary'>Sök Kategori</button></span>
     </div>
-    <button type="submit" class='btn btn-primary'>Sök fråga</button>
   </form>
 <% end %>
 <table class="table">
@@ -23,6 +25,7 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.category_name %></td>
+        <td><%= category.category_hex_code%></td>
         <td><%= link_to 'Visa', category %> |
         <%= link_to 'Redigera', edit_category_path(category) %> |
         <%= link_to 'Radera', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>

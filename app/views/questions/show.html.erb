@@ -1,69 +1,85 @@
+
+<div class="col-md-5 col-md-offset-2">
+
 <p id="notice"><%= notice %></p>
 
+<p><strong>Aktiv:</strong> 
+<% if @question.valid_to >= @todays_date 
+  && @question.valid_from <= @todays_date %>
+          <span class="glyphicon glyphicon-ok-circle"
+          aria-hidden="true"></span>
+        <% else %>
+          <span class="glyphicon glyphicon-ban-circle"
+          aria-hidden="true"></span>
+        <% end %>
+</p>
+
 <p>
-  <strong>Question name:</strong>
+  <strong>Fråga:</strong>
   <%= @question.question_name %>
 </p>
 
 <p>
-  <strong>C answer:</strong>
+  <strong>Rätt svar:</strong>
   <%= @question.c_answer %>
 </p>
 
 <p>
-  <strong>Alt1:</strong>
+  <strong>Alt. 1:</strong>
   <%= @question.alt1 %>
 </p>
 
 <p>
-  <strong>Alt2:</strong>
+  <strong>Alt. 2:</strong>
   <%= @question.alt2 %>
 </p>
 
 <p>
-  <strong>Alt3:</strong>
+  <strong>Alt. 3:</strong>
   <%= @question.alt3 %>
 </p>
 
 <p>
-  <strong>News url:</strong>
+  <strong>Nyhetens url:</strong>
   <%= @question.news_url %>
 </p>
 
-<p>
-  <strong>Img url:</strong>
-  <%= @question.img_url %>
-</p>
+
+</div>
+
+<div class="col-md-3">
 
 <p>
-  <strong>Tag:</strong>
-  <%= @question.tag %>
-</p>
-
-<p>
-  <strong>News summary:</strong>
-  <%= @question.news_summary %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @question.category_id %>
+  <strong>Kategori:</strong>
+  <%= @question.category.category_name %>
 </p>
 
 <p>
   <strong>Question type:</strong>
-  <%= @question.question_type_id %>
+  <%= @question.question_type.question_type_name %>
 </p>
 
 <p>
-  <strong>Valid from:</strong>
+  <strong>Taggar:</strong>
+  <%= @question.tag %>
+</p>
+
+<p>
+  <strong>Giltig från:</strong>
   <%= @question.valid_from %>
 </p>
 
 <p>
-  <strong>Valid to:</strong>
+  <strong>Giltig till:</strong>
   <%= @question.valid_to %>
 </p>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+
+</div>
+<div class="col-md-8 col-md-offset-2">
+<%= link_to 'Redigera', edit_question_path(@question) %> |
+<%= link_to 'Hem', questions_path %> | 
+<%= link_to 'Skapa en ny fråga', new_question_path %>
+</div>
+
+
