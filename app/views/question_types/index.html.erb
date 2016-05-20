@@ -30,7 +30,7 @@
         <td><%= question_type.question_type_name %></td>
         <td><%= link_to 'Visa', question_type %> |
         <%= link_to 'Redigera', edit_question_type_path(question_type) %> |
-        <%= link_to 'Radera', question_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to 'Radera', question_type, method: :delete, data: { confirm: 'Tar du bort denna Frågetyp kommer alla frågor som har frågetypen bli frågetypslösa. Vill du ta bort?' } %></td>
       </tr>
     <% end %>
   </tbody>

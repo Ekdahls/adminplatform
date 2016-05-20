@@ -1,4 +1,6 @@
 json.array! @questions do |question|
+
+  if question.valid_to >= Date.today.to_time and question.valid_from <= Date.today.to_time
   json.id             question.id
   json.question_name  question.question_name
   json.c_answer       question.c_answer
@@ -16,4 +18,5 @@ json.array! @questions do |question|
 
   json.valid_from     question.valid_from
   json.valid_to       question.valid_to
+  end
 end

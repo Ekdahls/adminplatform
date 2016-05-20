@@ -29,7 +29,7 @@
         <td><%= category.category_hex_code%></td>
         <td><%= link_to 'Visa', category %> |
         <%= link_to 'Redigera', edit_category_path(category) %> |
-        <%= link_to 'Radera', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to 'Radera', category, method: :delete, data: { confirm: 'Tar du bort denna kategori kommer alla frågor som tillhör kategorin bli kategorilösa. Vill du ta bort?' } %></td>
       </tr>
     <% end %>
   </tbody>
