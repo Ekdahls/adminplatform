@@ -2,7 +2,7 @@
 <h1>Frågor</h1>
 <br>
 
-
+<!-- Searchform for questions-->
 <%= search_form_for @q do |f| %>
   <form class="form-inline">
     <div class="input-group">
@@ -14,6 +14,8 @@
 <% end %>
 
 <br>
+
+<!-- Titles for displayed data -->
 <table class="table">
   <thead>
     <tr>
@@ -29,10 +31,13 @@
     </tr>
   </thead>
 
+  <!-- List of questions i database-->
   <tbody>
     <% @questions.each do |question| %>
 
       <tr>
+
+      <!-- displaying green or red symbol depending if the question is valid or not-->
         <% if question.valid_to >= @todays_date and question.valid_from <= @todays_date%>
           <td><span class="glyphicon glyphicon-ok-circle"
           aria-hidden="true"></span></td>
@@ -40,7 +45,7 @@
           <td><span class="glyphicon glyphicon-ban-circle"
           aria-hidden="true"></span></td>
         <% end %>
-
+      <!-- Display data for each question-->
         <td id="td-question-name"><%= question.question_name %></td>
         <td><%= question.c_answer %></td>
         <td><% if question.category_id != nil %>
@@ -55,5 +60,6 @@
     <% end %>
   </tbody>
 </table>
+<!-- paginate breaks data after 25 questions and makes several pages to organize questions -->
 <%= paginate @questions %>
 <br>

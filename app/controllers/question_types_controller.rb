@@ -3,6 +3,7 @@ class QuestionTypesController < ApplicationController
 
   # GET /question_types
   # GET /question_types.json
+  #Function called when index view is rendered. Ransack is used for search
   def index
     q_param = params[:q]
     page = params[:page]
@@ -26,7 +27,8 @@ class QuestionTypesController < ApplicationController
   end
 
   # POST /question_types
-  # POST /question_types.json
+  # POST /question_types.json'
+  # when create button is pushed in new question type
   def create
     @question_type = QuestionType.new(question_type_params)
 
@@ -43,6 +45,7 @@ class QuestionTypesController < ApplicationController
 
   # PATCH/PUT /question_types/1
   # PATCH/PUT /question_types/1.json
+  #When update  button is pushed in edit question type
   def update
     respond_to do |format|
       if @question_type.update(question_type_params)
@@ -57,6 +60,7 @@ class QuestionTypesController < ApplicationController
 
   # DELETE /question_types/1
   # DELETE /question_types/1.json
+  # when destroy question type is called in index view
   def destroy
     @question_type.destroy
     respond_to do |format|
@@ -65,6 +69,7 @@ class QuestionTypesController < ApplicationController
     end
   end
 
+#Other functions 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question_type

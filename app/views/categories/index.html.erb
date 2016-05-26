@@ -5,6 +5,7 @@
 <%= search_form_for @q do |f| %>
   <form class="form-inline">
 
+<!--searchfield-->
      <div class="input-group">
       <%= f.search_field :category_name_cont,
       class: 'form-control', placeholder: 'Sök...' %>
@@ -15,6 +16,7 @@
 <table class="table">
   <thead>
     <tr>
+    <!--sort links for table names-->
       <th><%= sort_link(@q, :category_name, 'Kategori') %></th>
       <th><%= sort_link(@q, :category_hex_code, 'Hexkod') %></th>
       <th>Redigera</th>
@@ -23,6 +25,7 @@
   </thead>
 
   <tbody>
+  <!--show a list of categories in database-->
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.category_name %></td>
@@ -34,4 +37,5 @@
     <% end %>
   </tbody>
 </table>
+<!--paginate makes several pages instead of a long list of categories-->
 <%= paginate @categories %>

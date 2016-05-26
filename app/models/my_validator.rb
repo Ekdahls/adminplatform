@@ -1,3 +1,4 @@
+#class used for date validation
 class MyValidator < ActiveModel::Validator
   def validate(record)
     if record.valid_to < record.valid_from

@@ -1,6 +1,6 @@
-
+<!-- Form for create and update question-->
 <%= form_for @question do |f| %>
-
+<!--If there are errors-->
   <% if @question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -16,7 +16,7 @@
 <div id="top-area">
 </div>
 <br>
-
+<!-- col md is bootstrap classes for displaying columns-->
 <div class="col-md-6" id="left-column">
 
 <div class="col-md-12" >
@@ -38,6 +38,8 @@
                     </span>
   </div>
 </div>
+
+<!-- Javascript for calendar icon and textfield id datepicker1-->
 <script type="text/javascript">
             $(function () {
                 $('#datepicker1').datepicker({
@@ -61,6 +63,9 @@
                     </span>
   </div>
 </div>
+
+
+<!-- Javascript for calendar icon and textfield id datepicker2 -->
 <script type="text/javascript">
             $(function () {
                 $('#datepicker2').datepicker({
@@ -109,6 +114,8 @@
 
 </div>
 
+
+<!-- Right column of form -->
 <div class="col-md-6" id ="right-column">
 
   

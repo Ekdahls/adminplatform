@@ -1,9 +1,10 @@
-
+<!-- Showing a question and it's data -->
 <div class="col-md-5 col-md-offset-2">
 
 <p id="notice"><%= notice %></p>
 
 <p><strong>Aktiv:</strong> 
+<!-- Showing a green icon if question is valid and a red icon if question is invalid -->
 <% if @question.valid_to >= @todays_date and @question.valid_from <= @todays_date %>
           <span class="glyphicon glyphicon-ok-circle"
           aria-hidden="true"></span>

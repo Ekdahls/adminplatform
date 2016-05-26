@@ -6,7 +6,7 @@
   <form class="form-inline">
 
 
-
+<!--Search form-->
      <div class="input-group">
       <%= f.search_field :question_type_name_cont,
       class: 'form-control', placeholder: 'Sök...' %>
@@ -18,12 +18,14 @@
 <table class="table">
   <thead>
     <tr>
+    <!--sort of column name in db table-->
       <th><%= sort_link(@q, :question_type_name, 'Frågetyp') %></th>
       <th>Redigera</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
+<!--show a list of question types in database-->
   <tbody>
     <% @question_types.each do |question_type| %>
       <tr>
